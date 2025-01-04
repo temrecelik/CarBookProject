@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    [Migration("20250102220053_init")]
+    [Migration("20250104203722_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -52,8 +52,11 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Banner", b =>
                 {
-                    b.Property<string>("BannerId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BannerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BannerId"));
 
                     b.Property<string>("Description")
                         .IsRequired()

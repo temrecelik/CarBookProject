@@ -30,7 +30,8 @@ namespace CarBook.Persistence.Migrations
                 name: "Banners",
                 columns: table => new
                 {
-                    BannerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BannerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VideoDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),

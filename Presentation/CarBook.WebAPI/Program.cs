@@ -1,4 +1,11 @@
+using CarBook.Application;
+using CarBook.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AppApplicationService();
+builder.Services.AppPersistenceService();
+
 
 // Add services to the container.
 

@@ -49,8 +49,11 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Banner", b =>
                 {
-                    b.Property<string>("BannerId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BannerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BannerId"));
 
                     b.Property<string>("Description")
                         .IsRequired()

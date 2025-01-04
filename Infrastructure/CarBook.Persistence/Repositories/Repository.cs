@@ -1,6 +1,8 @@
-﻿using CarBook.Application.Interfaces;
+﻿
+using CarBook.Application.Interfaces;
 using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
