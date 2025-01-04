@@ -1,5 +1,6 @@
 ﻿using CarBook.Application.Features.CQRS.Handler.AboutHandler;
 using CarBook.Application.Features.CQRS.Handler.BannerHandler;
+using CarBook.Application.Features.CQRS.Handler.BrandHandler;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace CarBook.Application
             services.AddScoped<UpdateBannerCommandHandler>();
             services.AddScoped<RemoveBannerCommandHandler>();
 
+            services.AddScoped<GetBrandByIdQueryHandler>();
+            services.AddScoped<GetBrandQueryHandler>();
+            services.AddScoped<CreateBrandCommandHandler>();
+            services.AddScoped<UpdateBrandCommandHandler>();
+            services.AddScoped<RemoveBrandCommandHandler>();
         }
     }
 }
