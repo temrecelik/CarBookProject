@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\" />
-    <Folder Include="Features\CQRS\Handler\" />
-    <Folder Include="Features\CQRS\Results\" />
-    <Folder Include="Features\CQRS\Queries\" />
+    <ProjectReference Include="..\..\Infrastructure\CarBook.Persistence\CarBook.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
