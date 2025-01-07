@@ -11,12 +11,15 @@ namespace CarBook.Application.Features.CQRS.Handler.AboutHandler
 {
     public class RemoveAboutCommandHandler
     {
+
+
+        public readonly IRepository<About> _aboutRepository;
+
         public RemoveAboutCommandHandler(IRepository<About> aboutRepository)
         {
             _aboutRepository = aboutRepository;
         }
 
-        public IRepository<About> _aboutRepository { get; set; }
 
 
         public async Task Handle(RemoveAboutCommand command)

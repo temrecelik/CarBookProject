@@ -17,14 +17,16 @@ namespace CarBook.WebAPI.Controllers
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly CreateCarCommandHandler _createCarCommandHandler;
+        private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
 
-        public CarsController(GetCarQueryByIdHandler getCarQueryByIdHandler, GetCarQueryHandler getCarQueryHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, CreateCarCommandHandler createCarCommandHandler)
+        public CarsController(GetCarQueryByIdHandler getCarQueryByIdHandler, GetCarQueryHandler getCarQueryHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, CreateCarCommandHandler createCarCommandHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
         {
             _getCarQueryByIdHandler = getCarQueryByIdHandler;
             _getCarQueryHandler = getCarQueryHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
             _removeCarCommandHandler = removeCarCommandHandler;
             _createCarCommandHandler = createCarCommandHandler;
+            _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
         }
 
         [HttpGet]
@@ -59,6 +61,13 @@ namespace CarBook.WebAPI.Controllers
         {
             await _removeCarCommandHandler.Handle(new RemoveCarCommand(id));
             return Ok("Car silindi");
+        }
+
+        [HttpGet("GetCarWithBrand")]
+        public  IActionResult GetCarWithBrand()
+        {
+            var entities =  _getCarWithBrandQueryHandler.Handle();
+            return Ok(entities);
         }
     }
 }
