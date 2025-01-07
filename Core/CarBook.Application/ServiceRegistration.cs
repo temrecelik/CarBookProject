@@ -5,6 +5,7 @@ using CarBook.Application.Features.CQRS.Handler.CarHandler;
 using CarBook.Application.Features.CQRS.Handler.CategoryHandler;
 using CarBook.Application.Features.CQRS.Handler.ContactHandler;
 using CarBook.Domain.Entities;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,8 @@ namespace CarBook.Application
             services.AddScoped<CreateContactCommandHandler>();
             services.AddScoped<UpdateContactCommandHandler>();
             services.AddScoped<RemoveContactCommandHandler>();
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly));
 
 
         }

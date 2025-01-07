@@ -1,0 +1,17 @@
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CarBook.Application.Features.Mediator.Commands.FeatureCommands
+{
+    /*
+     Command'lar geriye veri döndürmediği için IRequest interface'sine bir result class'ı vermeye gerek yoktur.
+     */
+    public class CreateFeatureCommand :IRequest
+    {
+        public string Name { get; set; }
+    }
+}
